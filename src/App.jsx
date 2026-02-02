@@ -106,7 +106,7 @@ export default function App() {
       </form>
 
       {/* LIST */}
-      <button onClick={handleLoadItems} disabled={status === "loading"}>
+      <button onClick={handleLoadItems} disabled={disableActions}>
         {status === "loading" ? "Loading..." : "Load items"}
       </button>
 
