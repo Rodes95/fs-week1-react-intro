@@ -1,16 +1,59 @@
-# React + Vite
+# React + FastAPI Items - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Small React application built with Vite that consumes a FastAPI backend.
+Allows listing and creating items with basic UI state handling.
 
-Currently, two official plugins are available:
+## Tech Stack
+- React
+- Vite
+- JavaScript
+- Fetch API
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- List items from backend (GET /items)
+- Create new items (POST /items)
+- Basic UI states:
+    - loading
+    - error (network & backend)
+    - validation (required fields)
+- Controlled form inputs
+- Simple and clean structure
 
-## React Compiler
+## Requirements
+- Node.js 18+ recommended
+- npm
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Setup
+Install Dependecies:
 
-## Expanding the ESLint configuration
+```bash
+npm install
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Run
+Start the development server:
+npm run dev
+
+The app will be available at:
+http://localhost:5173
+
+Backend
+The frontend expects the FastAPI backend to be running at:
+http://127.0.0.1:8000
+
+The API base url is configured in:
+src/api/itemsApi.js
+
+Project Structure
+src/
+ ├─ api/
+ │   └─ itemsApi.js
+ ├─ components/
+ │   └─ ItemsList.jsx
+ ├─ App.jsx
+ └─ main.jsx
+
+
+Notes
+* All inputs are controlled via React state
+* UI actions are disabled during async operations to avoid race conditions
+* Errors are handled separately for list and create actions
